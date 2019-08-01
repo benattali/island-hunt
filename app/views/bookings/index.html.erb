@@ -1,0 +1,85 @@
+<div class="container" style="text-align: center; margin-top: 15px; margin-bottom: 30px;">
+  <h2>Hello <%= current_user.username %>, here are your bookings </h2>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% if !@bookings.empty? %>
+    <% @bookings.each do |booking|%>
+    <div class="card-trip col-12 col-sm-6 col-md-4 col-lg-4" id="dash-card">
+      <img src=" <%= booking.island.photo %>" style="margin-top: 10px;">
+      <div>
+        <div>
+          <h6 class="mt-2 text-center">Your reservation for <br> <%= booking.island.name %></h6>
+          <% start_date = booking.start_date %>
+          <div class="d-flex justify-content-between">
+            <div>
+              <h6>From: <%= start_date.strftime('%d/%m/%y') %></h6>
+              <% end_date = booking.end_date %>
+              <h6>Until: <%= end_date.strftime('%d/%m/%y') %></h6>
+            </div>
+            <div>
+              <% x = booking.end_date - booking.start_date %>
+              <% y = x / 24 %>
+              <% z = y / 60 %>
+              <% number_of_nights = z.to_i / 60 %>
+              <% if booking.transport.nil? %>
+              <% transport_ptice = 0 %>
+              <% else %>
+              <% transport_ptice = booking.transport.price %>
+              <% end %>
+              <h6> $ <%= number_of_nights * booking.island.price + transport_ptice %> </h6>
+            </div>
+          </div>
+          <br>
+          <div class="mb-3 d-flex justify-content-around">
+            <%= link_to "Cancel it", booking_path(booking), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-outline-danger' %>
+            <%= link_to "details", booking_path(booking), class: 'btn btn-outline-secondary'%>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+    <% else %>
+    <p>No bookings yet</p>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="container">
+
+  <% if current_user.islands %>
+  <div class="container" style="text-align: center; margin-top: 15px; margin-bottom: 30px;">
+    <h2>Here are your islands </h2>
+  </div>
+  <% current_user.islands.each do |island| %>
+  <div class="card-product">
+    <img src=" <%= island.photo%> ">
+    <div class="card-product-infos">
+      <div class="d-flex justify-content-between">
+        <h2> <%= island.name %> </h2>
+        <h5 style= "color:black">$ <%= island.price %> /night </h5>
+      </div>
+      <div class="d-flex justify-content-between">
+        <p><%= island.activities.truncate(100) %></p>
+        <%= link_to "Edit", edit_island_path(island), class:"btn btn-primary"  %>
+      </div>
+    </div>
+  </div>
+
+  <% end %>
+  <div class="d-flex justify-content-between">
+
+  <%= link_to "Add another island", new_island_path, class: "btn btn-outline-primary btn-lg"  %>
+  <% else %>
+  <%= link_to "Create your island", new_island_path, class: "btn btn-outline-primary btn-lg"  %>
+  <% end %>
+  <%= link_to "Back to all islands", islands_path, class: "btn btn-outline-primary btn-lg"%>
+  </div>
+</div>
+
+
+<div class="d-flex justify-content-center">
+  <p style="font-size: 20px;"> Remember... dead men tell no tales </p>
+</div>

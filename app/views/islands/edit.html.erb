@@ -1,0 +1,10 @@
+<div class="container my-3">
+  <%= link_to island_path(@island), class: "btn btn-outline-secondary" do %>
+    Back
+  <% end %>
+</div>
+
+<h1 class="text-center"> Adding a new feature to your gameboard? </h1>
+
+<%= render 'form', island: @island %>
+

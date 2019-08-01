@@ -1,0 +1,66 @@
+
+
+<h1 class="text-center" style="margin-bottom: 30px;">Here is you booking for <%= @booking.island.name %> </h1>
+
+<div class="container d-flex pt-10" id="card-details">
+  <img src="<%= @booking.island.photo %>" class="img-details" alt="<%= @booking.island.name %>">
+  <div class="pl-5">
+
+
+    <div class="d-flex justify-content-between">
+      <div>
+        <h5><strong>Location: </strong><%= @booking.island.location %></h5>
+      </div>
+      <div>
+        <h5><strong>Difficulty: </strong><%= @booking.island.difficulty %></h5>
+      </div>
+    </div>
+<br>
+    <h5><strong>Description: </strong></h5>
+    <h5><%= @booking.island.activities %></h5>
+    <% x = @booking.end_date - @booking.start_date %>
+    <% y = x / 24 %>
+    <% z = y / 60 %>
+    <% number_of_nights = z.to_i / 60 %>
+
+  </div>
+
+</div>
+
+<div class="d-flex container justify-content-between mt-5">
+  <div>
+
+    <% if !@booking.transport.nil? %>
+      <br>
+      <h5><strong>Way of trasportation: </strong><%= @booking.transport.category %></h5>
+      <h5><strong>Name: </strong><%= @booking.transport.name %></h5>
+      <h5><strong>Description: </strong><%= @booking.transport.description %></h5>
+      ----------------
+      <h5><strong>Price of transport: </strong>$<%= @booking.transport.price %></h5>
+      <h5><strong>Price per night: </strong>$<%= @booking.island.price %> </h5>
+      <h5><strong>Number of nights: </strong><%= number_of_nights %> </h5>
+      ----------------
+
+      <h5>Total: $<%= number_of_nights * @booking.island.price + @booking.transport.price %> </h5>
+    <% else %>
+      <h5><strong>Price per night: </strong>$<%= @booking.island.price %> </h5>
+      <h5><strong>Number of nights: </strong><%= number_of_nights %> </h5>
+
+      <h5><strong>Transportation: </strong>$0</h5>
+      ----------------
+      <h5><strong>Total: </strong>$<%= number_of_nights * @booking.island.price %></h5>
+
+
+    <% end %>
+  </div>
+
+</div>
+<div class="container">
+
+  <%= link_to "My Dashboard", bookings_path, class: "btn btn-outline-secondary mt-5" %>
+</div>
+
+
+
+
+

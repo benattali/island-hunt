@@ -1,0 +1,30 @@
+<%= render 'shared/banner_islands' %>
+<div class="container">
+  <div class="row">
+    <% @islands.each do |island| %>
+      <div class="col-12 col-sm-6 col-md-4 d-flex justify-content-between my-4">
+        <%= link_to island_path(island), class: "island-link" do %>
+          <div class="card-trip">
+            <img src="<%= island.photo %>">
+            <div class="card-trip-infos">
+              <div>
+                <h2> <%= island.name %> </h2>
+                <p> <%= island.location %> </p>
+              </div>
+              <h2 class="card-trip-pricing"> $<%= island.price %>/night </h2>
+              <img src="<%= island.user.photo %>" class="card-trip-user avatar-bordered"/>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <% if user_signed_in? %>
+    <div class="d-flex justify-content-center">
+      <%= link_to new_island_path, class: 'btn-gold w-50 text-center' do %>
+        Add your own
+      <% end %>
+    </div>
+  <% end %>
+</div>
+

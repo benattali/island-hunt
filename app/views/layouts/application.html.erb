@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/jpg" href="<%= image_url('treasure.png') %>"/>
+    <title>Island Hunt</title>
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= stylesheet_pack_tag 'application' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+  </head>
+  <body>
+    <% if !current_page?(root_path) %>
+      <%= render 'shared/navbar' %>
+    <% end %>
+    <%= render 'shared/flashes' %>
+    <div class="main">
+      <%= yield %>
+    </div>
+    <%= render 'shared/footer' %>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script>
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_pack_tag 'application' %>
+  </body>
+</html>

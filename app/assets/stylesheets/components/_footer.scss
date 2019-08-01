@@ -1,0 +1,50 @@
+.footer {
+  background: $black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  padding: 0px 50px;
+  // border-top: 0.5px solid $gold;
+  flex-shrink: 0;
+  width: 100vw;
+  color: $gold;
+}
+.footer-links {
+  // display: flex;
+  align-items: center;
+  p {
+   margin-bottom: 0;
+  }
+}
+.footer-links a {
+  color: $black;
+  opacity: 0.5;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
+}
+.footer-links a:hover {
+  opacity: 1;
+}
+
+.footer .fa-anchor {
+  color: $gold;
+}
+
+.footer .fa-beer {
+  color: $gold;
+}
+
+.footer .fa-skull-crossbones {
+  // color: gray;
+  color: $gold;
+}
+
+ul {
+ list-style-type: none;
+}
+
+.footer-margin {
+  height: 100px;
+}

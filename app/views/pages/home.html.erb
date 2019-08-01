@@ -1,0 +1,39 @@
+<div class="home-page">
+  <div class="banner" style="background-image: linear-gradient(360deg, rgb(50,54,57) 0%, rgba(243,182,201,0) 20%, rgba(243,182,201,0) 80%, rgb(50,54,57) 100%), url(https://images.unsplash.com/photo-1545153996-16c1df09d5ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80); margin-top: -15px;">
+    <% if !user_signed_in? %>
+      <%= link_to new_user_session_path, class: "btn-login" do %>
+        Login
+      <% end %>
+    <% else %>
+    <% if current_user.photo.url %>
+      <div class="banner-menu">
+        <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% else %>
+        <%= image_tag "https://i1.wp.com/revistasoyrock.com.ar/wp/wp-content/uploads/2019/04/nicolas-cage-9234498-1-402.jpg?fit=1200%2C1200&ssl=1", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% end %>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %>
+          <%= link_to "Dashboard", bookings_path, class: "dropdown-item" %>
+          <%= link_to "Add your island", new_island_path, class: "dropdown-item" %>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        </div>
+      </div>
+    <% end %>
+    <div class="container">
+      <h1> Island Hunt </h1>
+      <h3> <span id="banner-typed-text"></span> </h3>
+      <%= link_to islands_path, class: "btn-gold" do %>
+        Show m'gold
+      <% end %>
+    </div>
+  </div>
+
+
+  <section><h5 style="text-align: center; padding-top: 30px; padding-bottom: 30px;"> All hands hoay </h5></section>
+  <div class="img-holder" data-image="https://images.unsplash.com/photo-1518466287196-1ba82e3bb69b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">
+  </div>
+
+  <section><h5 style="text-align: center; padding-top: 30px; padding-bottom: 30px;"> Find ye booty </h5></section>
+  <div class="img-holder" data-image="https://cdn.pixabay.com/photo/2017/07/22/11/46/adventure-2528477_960_720.jpg">
+  </div>
+</div>

@@ -1,0 +1,47 @@
+.navbar-lewagon {
+  justify-content: space-between;
+  background-color: $black;
+  h3 {
+    color: $gold;
+  }
+}
+
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon .navbar-brand img {
+  height: 50px;
+  width: 80px;
+}
+
+.username-color {
+  color: $gold;
+  font-size: 20px;
+}
+
+.dropdown-menu {
+  background-color: $gold;
+  color: $black;
+  border-radius: 5px;
+}
+
+.dropdown-item {
+  &:hover {
+    text-decoration: none;
+    background-color: $black;
+    color: $gold;
+  }
+}
+
+.nav-link {
+  background-color: $gold;
+  color: $black;
+}
+
+.dropdown {
+  opacity: 0.8;
+  &:hover {
+    opacity: 1;
+  }
+}

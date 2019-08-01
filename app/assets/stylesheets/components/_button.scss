@@ -1,0 +1,46 @@
+.btn-gold {
+  font-weight: 700;
+  font-size: 25px;
+  color: $gold;
+  border-style: solid;
+  border-color: $gold;
+  padding: 10px;
+  background-color: none;
+  border-width: 0.5px;
+  border-radius: 3px;
+  vertical-align: middle;
+  &:hover {
+    text-decoration: none;
+    background-color: $gold;
+    color: $black;
+    border-color: $black;
+  }
+}
+
+.btn-login {
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  font-weight: 700;
+  font-size: 25px;
+  color: $gold;
+  border-style: solid;
+  border-color: $gold;
+  padding: 10px;
+  border-width: 0.5px;
+  border-radius: 3px;
+  text-align: center;
+  &:hover {
+    text-decoration: none;
+    background-color: $gold;
+    color: $black;
+    border-color: $black;
+  }
+}
+
+.container-buttons {
+  position: absolute;
+  bottom: -75%;
+  right: 10%;
+  text-align: center;
+}

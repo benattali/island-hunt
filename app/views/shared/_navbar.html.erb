@@ -1,0 +1,38 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top">
+  <%= link_to root_path, class: "navbar-brand" do %>
+  <%= image_tag "treasure.png" %>
+  <% end %>
+  <div class="navbar-brand pt-2">
+    <h3 class="">Island Hunt</h3>
+  </div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <% if user_signed_in? %>
+      <li class="nav-item active">
+        <span class="navbar-text mr-2"> <div class="username-color"> <%= current_user.username %> </div> </span> <br>
+      </li>
+      <li class="nav-item dropdown">
+      <% if current_user.photo.url %>
+      <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <% else %>
+      <%= image_tag "https://i1.wp.com/revistasoyrock.com.ar/wp/wp-content/uploads/2019/04/nicolas-cage-9234498-1-402.jpg?fit=1200%2C1200&ssl=1", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <% end %>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+        <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %>
+        <%= link_to "Dashboard", bookings_path, class: "dropdown-item" %>
+        <%= link_to "Add your island", new_island_path, class: "dropdown-item" %>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+      </div>
+      </li>
+      <% else %>
+      <li class="nav-item">
+        <%= link_to "Login", new_user_session_path, class: "btn-gold" %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
