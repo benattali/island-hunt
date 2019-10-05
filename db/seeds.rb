@@ -160,19 +160,6 @@ Transport.create!(category: 'Submarine',
                   remote_photo_url: 'http://www.coralworld.com/yellow-sub/04.jpg',
                   name: 'Lucy')
 
-# Transport.create!(category: ,
-#                   description: ,
-#                   price: ,
-#                   remote_photo_url: ,
-#                   name: )
-
-# Transport.create!(category: ,
-#                   description: ,
-#                   price: ,
-#                   remote_photo_url: ,
-#                   name: )
-
-
 puts "Finished generating Transports"
 
 
