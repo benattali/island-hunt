@@ -57,7 +57,7 @@ island = Island.new(name: "San Blas Island",
                     size: "10",
                     price: 1350,
                     difficulty: difficulty_level.sample,
-                    remote_photo_url: "http://res.cloudinary.com/dn4gmiobc/image/upload/v1561478460/hxao2lnffnlia5i6nwu5.jpg",
+                    remote_photo_url: "https://cdn.pixabay.com/photo/2015/06/08/15/14/island-801948_960_720.jpg",
                     user: jack)
 island.save!
 
