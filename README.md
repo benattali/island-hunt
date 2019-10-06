@@ -7,4 +7,5 @@
 * Run `bundle install`  
 * Run `rails db:create db:migrate`
 * (OPTIONAL) run `rails db:seed` to add some pre-made islands  
-When developing the website, you need to only re-run the last step `rails s` to server the website.
+
+##### When developing the website, you need to only re-run the last step `rails s` to server the website.
