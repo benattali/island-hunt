@@ -1,4 +1,4 @@
-# Island Hunt
+# [Island Hunt](http://islandhunt.herokuapp.com/)
 ## Installation
 #### Assuming you have ruby and rails installed, to run this app locally do the following:
 ##### This section you do only once
